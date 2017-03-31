@@ -11,15 +11,15 @@ a better way of doing business.
 1. [Integration](#integration)
 2. [Usage](#usage)
     * [Initialization](#usage)
-    * [Ad showing](#ad-showing)
-    * [Frequnecy capping](#frequnecy-capping)
+    * [Showing an ad](#showing-an-ad)
+    * [Frequency capping](#frequency-capping)
     * [Console logging](#console-logging)
 3. [Google Play Services](#google-play-services)
 4. [Requirements](#requirements)
 
 ### Integration
 
-1. Add following lines to your root project `build.gradle`:
+1. Add the following lines to your root project's `build.gradle` file:
 
         :::gradle
         allprojects {
@@ -30,7 +30,7 @@ a better way of doing business.
         }
 
 
-2. In your application `build.gradle` add following line to the dependencies:
+2. In your application's `build.gradle` add the following line to the dependencies list:
 
         :::gradle
         dependencies {
@@ -40,8 +40,8 @@ a better way of doing business.
 ### Usage
 
 ##### Initialization
-Initialization has to be done before Jukko can be customized and launched. The method will
-need the API key and context. The API key can be generated in the dashboard after registration.
+Initialization has to be done before Jukko SDK can be customized and launched. The method will
+need an API key and context object. The API key can be generated in the dashboard after registration.
 You can register on [Jukko website](https://jukko.com).
 
 ```java
@@ -49,9 +49,9 @@ You can register on [Jukko website](https://jukko.com).
 ```
 
 
-##### Ad showing
+##### Showing an ad
 
-You can show an ad by calling `showAd()` method:
+You can show an ad by calling `showAd()` method of Jukko SDK:
 
 ```java
         JukkoSdk.getInstance().showAd(new JukkoSdkInterface.AdCallback() {
@@ -62,31 +62,31 @@ You can show an ad by calling `showAd()` method:
         });
 ```
 
-When ads activity is finished, `onClosed()` callback will be called on main thread. It will following information:
+When ad UI is closed, `onClosed()` callback will be called on the main thread. It will contain the following information:
 
-1. `reason`: reason why ad was closed. Possible variants are:
-    * `CLOSED_BY_USER`: Ad view was closed by user interactions
-    * `TIMEOUT`: Api servers were unresponsive
-    * `NETWORK_CONNECTIVITY`: Network connectivity problems
-    * `FREQUENCY_CAPPING`: `showAd()` called before frequency capping timeout ended
-    * `ERROR`: Unspecified error. Look at the `message` field for description
-2. `message`: string containing extended description of reason
-3. `events`: list of events that happened with Ad activity. May be null. Each event contains:
-    * `timestamp` of the event (uses current timezone)
-    * `adEvent` type of event. Possible variants:
-        * `LAUNCH`: Ad activity opened
-        * `CLOSE`: Ad activity closed
-        * `INTRO_SHOWN`: NPO campaign intro was shown to user
-        * `PROGRESS_SHOWN`: NPO campaign progress was shown to user
-        * `OUTRO_SHOWN`: NPO campaign outro was shown to user
-        * `AD_SHOWN`: Ad was shown to user
-        * `AD_URL_OPENED`: user clicked on url, that opened in external browser
+1. `reason`: reason why the ad was closed. Possible values are:
+    * `CLOSED_BY_USER`: Ad view was closed by user interaction.
+    * `TIMEOUT`: API servers were unresponsive.
+    * `NETWORK_CONNECTIVITY`: Network connectivity issue.
+    * `FREQUENCY_CAPPING`: `showAd()` called before frequency capping timeout ended.
+    * `ERROR`: Unspecified error. Look at the `message` field for description.
+2. `message`: string containing extended description of reason.
+3. `events`: list of events that happened with ad UI. May be `null`. Each event contains:
+    * `timestamp` of the event (uses current timezone).
+    * `adEvent` type of event. Possible values:
+        * `LAUNCH`: Ad UI opened.
+        * `CLOSE`: Ad UI closed.
+        * `INTRO_SHOWN`: NPO campaign intro was shown to user.
+        * `PROGRESS_SHOWN`: NPO campaign progress was shown to user.
+        * `OUTRO_SHOWN`: NPO campaign outro was shown to user.
+        * `AD_SHOWN`: Ad was shown to user.
+        * `AD_URL_OPENED`: user clicked on URL that was opened in external browser.
 
 
 ##### Frequency capping
 
-Sdk allows developer to set frequency capping for ads. It counts time since last ad was closed
-and ignores `showAd()` calls in frequency capping period. Frequency capping can be changed
+Jukko SDK allows developer to set frequency capping for ads. It counts time since the last time when an ad was closed
+and ignores `showAd()` calls until frequency capping period ends. Frequency capping can be changed
 using:
 
 ```java
@@ -98,7 +98,7 @@ using:
 
 By default, Jukko SDK logs only important messages, like unrecoverable error reasons.
 
-You can enable debug logging by calling
+You can enable debug logging by calling:
 
 ```java
     JukkoSdk.getInstance().setDebugMode(true);
@@ -108,13 +108,11 @@ Log messages will contain `Jukko SDK` tag.
 
 ### Google Play Services
 
-If user have Google Play services on their devices, SDK will automatically use its
-Advertising ID (GAID) and Limit Ad Tracking information.
+If user has Google Play services on their devices, SDK will automatically use user's
+Advertising ID (GAID) and Limit Ad Tracking setting.
 
-For more information about Google Advertising ID visit [this link](https://play.google.com/about/monetization-ads/ads/ad-id/)
+For more information about Google Advertising ID visit [this link](https://play.google.com/about/monetization-ads/ads/ad-id/).
 
 ### Requirements
 
-Jukko SDK support devices starting with Android 4.0 (API level 14).
-
-However, SDK won't do anything for Android prior to 4.4 (API level < 19) except log messages.
+Jukko SDK supports devices starting with Android 4.0 (API level 14). However, due to some older WebView version restrictions, ad UI won't be shown for Android prior to 4.4 (API level < 19) and SDK will only log some messages in console specifying this.
