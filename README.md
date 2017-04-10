@@ -1,4 +1,4 @@
-# Jukko SDK documentation
+># Jukko SDK documentation
 
 Welcome to the Jukko developer SDK documentation. Follow our step-by-step instructions to
 integrate Jukko and start monetizing while converting your app into a catalyst for social
@@ -8,14 +8,10 @@ If you have any questions during the integration process, you can reach us at [d
 and we'll get back to you ASAP. Thanks for joining our movement to create a better world and
 a better way of doing business.
 
-1. [Integration](#integration)
-2. [Usage](#usage)
-    * [Initialization](#usage)
-    * [Showing an ad](#showing-an-ad)
-    * [Frequency capping](#frequency-capping)
-    * [Console logging](#console-logging)
-3. [Google Play Services](#google-play-services)
-4. [Requirements](#requirements)
+
+
+[TOC]
+
 
 ### Integration
 
