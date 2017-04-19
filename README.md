@@ -30,7 +30,7 @@ a better way of doing business.
 
         :::gradle
         dependencies {
-            compile 'com.jukko.sdk:jukko-sdk-staging:$version'
+            compile 'com.jukko.sdk:jukko-sdk-staging:0.1.16'
         }
 
 ### Usage
