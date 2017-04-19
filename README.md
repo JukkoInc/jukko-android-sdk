@@ -21,7 +21,7 @@ a better way of doing business.
         allprojects {
             repositories {
                 ....
-                maven { url "https://dl.jukko.com/android-sdk" }
+                maven { url "https://dl.staging.jukko.com/android-sdk" }
             }
         }
 
@@ -30,15 +30,16 @@ a better way of doing business.
 
         :::gradle
         dependencies {
-            compile 'com.jukko.sdk:jukko-sdk:1.0.0'
+            compile 'com.jukko.sdk:jukko-sdk-staging:0.1.16'
         }
+
 
 ### Usage
 
 ##### Initialization
 Initialization has to be done before Jukko SDK can be customized and launched. The method will
 need an API key and context object. The API key can be generated in the dashboard after registration.
-You can register on [Jukko website](https://jukko.com).
+You can register on [Jukko dashboard](https://dashboard.staging.jukko.com).
 
 ```java
     JukkoSdk.getInstance().init(context, "API_KEY");
