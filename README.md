@@ -113,3 +113,5 @@ For more information about Google Advertising ID visit [this link](https://play.
 ### Requirements
 
 Jukko SDK supports devices starting with Android 4.0 (API level 14). However, due to some older WebView version restrictions, ad UI won't be shown for Android prior to 4.4 (API level < 19) and SDK will only log some messages in console specifying this.
+
+Due to WebView limitations, your application should also have `compileSdkVersion` set to `25` or higher.
