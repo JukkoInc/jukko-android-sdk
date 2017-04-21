@@ -42,6 +42,8 @@ need an API key and context object. The API key can be generated in the dashboar
 You can register on [Jukko dashboard](https://dashboard.staging.jukko.com).
 
 ```java
+    import com.jukko.sdk.JukkoSdk;
+
     JukkoSdk.getInstance().init(context, "API_KEY");
 ```
 
@@ -51,6 +53,9 @@ You can register on [Jukko dashboard](https://dashboard.staging.jukko.com).
 You can show an ad by calling `showAd()` method of Jukko SDK:
 
 ```java
+        import com.jukko.sdk.JukkoSdk;
+        import com.jukko.sdk.JukkoSdkInterface;
+
         JukkoSdk.getInstance().showAd(new JukkoSdkInterface.AdCallback() {
             @Override
             public void onClosed(JukkoSdkInterface.AdClosedEvent event) {
