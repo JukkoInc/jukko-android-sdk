@@ -21,7 +21,7 @@ a better way of doing business.
         allprojects {
             repositories {
                 ....
-                maven { url "https://dl.staging.jukko.com/android-sdk" }
+                maven { url "https://s3.amazonaws.com/jukkosdk/android/repository" }
             }
         }
 
@@ -35,12 +35,17 @@ a better way of doing business.
 
 
 ### Usage
+### Requirements
+
+Your application should also have `compileSdkVersion` set to `25` or higher. Jukko SDK supports devices starting with Android 4.0 (API level 14). However, due to some older WebView version restrictions, ad UI won't be shown for Android prior to API level 19 and you will only be exposed to some some for the console messages. 
 
 ##### Initialization
 Initialization has to be done before Jukko SDK can be customized and launched. The method will
 need an API key and context object. The API key can be generated in the dashboard after registration.
 You can register on [Jukko dashboard](https://dashboard.staging.jukko.com).
 
+
+After registering, you can are ready to `initalize` with our API:
 ```java
     import com.jukko.sdk.JukkoSdk;
 
@@ -50,7 +55,7 @@ You can register on [Jukko dashboard](https://dashboard.staging.jukko.com).
 
 ##### Showing an ad
 
-You can show an ad by calling `showAd()` method of Jukko SDK:
+Now, you can show an ad by calling `showAd()` method of Jukko SDK:
 
 ```java
         import com.jukko.sdk.JukkoSdk;
@@ -115,8 +120,3 @@ Advertising ID (GAID) and Limit Ad Tracking setting.
 
 For more information about Google Advertising ID visit [this link](https://play.google.com/about/monetization-ads/ads/ad-id/).
 
-### Requirements
-
-Jukko SDK supports devices starting with Android 4.0 (API level 14). However, due to some older WebView version restrictions, ad UI won't be shown for Android prior to 4.4 (API level < 19) and SDK will only log some messages in console specifying this.
-
-Due to WebView limitations, your application should also have `compileSdkVersion` set to `25` or higher.
