@@ -8,13 +8,11 @@ If you have any questions during the integration process, you can reach us at [d
 
 
 
-  * [Dockerfile.vim](#dockerfilevim)
-  * [Screenshot](#screenshot)
-  * [Installation](#installation)
-        * [OR using Pathogen:](#or-using-pathogen)
-        * [OR using Vundle:](#or-using-vundle)
-  * [License](#license)
-
+  <!-- * [Integration](#dockerfilevim)
+  * [Initialization](#screenshot)
+  * [Showing an ad](#installation)
+  * [Frequency capping](#license)
+  * [Console logging](#license) -->
 
 ### Integration
 
