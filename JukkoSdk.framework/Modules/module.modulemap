@@ -1,3 +1,0 @@
-framework module JukkoSdk {
-    header "JukkoSdk-Swift.h"
-}
