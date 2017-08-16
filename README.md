@@ -1,16 +1,19 @@
-># Jukko SDK documentation
+># Jukko Android Documentation
 
 Welcome to the Jukko developer SDK documentation. Follow our step-by-step instructions to
 integrate Jukko and start monetizing while converting your app into a catalyst for social
 impact today!
 
-If you have any questions during the integration process, you can reach us at [devs@jukko.com](mailto:devs@jukko.com)
-and we'll get back to you ASAP. Thanks for joining our movement to create a better world and
-a better way of doing business.
+If you have any questions during the integration process, you can reach us at [devs@jukko.com](mailto:devs@jukko.com) and we'll get back to you ASAP. Thanks for joining our movement to create a better world and a better way of doing business.
 
 
 
-[TOC]
+  * [Dockerfile.vim](#dockerfilevim)
+  * [Screenshot](#screenshot)
+  * [Installation](#installation)
+        * [OR using Pathogen:](#or-using-pathogen)
+        * [OR using Vundle:](#or-using-vundle)
+  * [License](#license)
 
 
 ### Integration
@@ -35,11 +38,11 @@ a better way of doing business.
 
 
 ### Usage
-### Requirements
+
 
 Your application should also have `compileSdkVersion` set to `25` or higher. Jukko SDK supports devices starting with Android 4.0 (API level 14). However, due to some older WebView version restrictions, ad UI won't be shown for Android prior to API level 19 and you will only be exposed to some some for the console messages. 
 
-##### Initialization
+### Initialization
 Initialization has to be done before Jukko SDK can be customized and launched. The method will
 need an API key and context object. The API key can be generated in the dashboard after registration.
 You can register on [Jukko dashboard](https://dashboard.staging.jukko.com).
@@ -53,7 +56,7 @@ After registering, you can are ready to `initalize` with our API:
 ```
 
 
-##### Showing an ad
+### Showing an ad
 
 Now, you can show an ad by calling `showAd()` method of Jukko SDK:
 
@@ -90,7 +93,7 @@ When ad UI is closed, `onClosed()` callback will be called on the main thread. I
         * `AD_URL_OPENED`: user clicked on URL that was opened in external browser.
 
 
-##### Frequency capping
+### Frequency capping
 
 Jukko SDK allows developer to set frequency capping for ads. It counts time since the last time when an ad was closed
 and ignores `showAd()` calls until frequency capping period ends. Frequency capping can be changed
@@ -101,7 +104,7 @@ using:
 ```
 
 
-##### Console logging
+### Console logging
 
 By default, Jukko SDK logs only important messages, like unrecoverable error reasons.
 
