@@ -1,6 +1,6 @@
 # Jukko Android SDK documentation
 
-![Jukko Banner](banner.png)
+![Jukko Banner](images/banner.png)
 
 Welcome to the Jukko developer SDK documentation. Follow our step-by-step instructions to
 integrate Jukko and start monetizing while converting your app into a catalyst for social
