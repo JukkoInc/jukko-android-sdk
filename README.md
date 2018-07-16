@@ -27,7 +27,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    compile 'com.jukko.sdk:jukko-sdk:1.0.5'
+    implementation 'com.jukko.sdk:jukko-sdk:1.0.5'
 }
 ```
 
