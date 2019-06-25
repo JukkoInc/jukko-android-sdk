@@ -27,7 +27,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.jukko.sdk:jukko-sdk:1.0.6'
+    implementation 'com.jukko.sdk:jukko-sdk:1.1.0'
 }
 ```
 
@@ -42,8 +42,18 @@ You can register on [Jukko dashboard]( https://dashboard.jukko.com) any time.
 ```java
 import com.jukko.sdk.JukkoSdk;
 
-JukkoSdk.getInstance().init(context, "API_KEY");
+JukkoSdk.getInstance().init(context, "API_KEY", new JukkoSdkInterface.ResultCallback() {
+    @Override
+    public void onResult(JukkoSdkInterface.OperationResult result) {
+        // handle init result here
+    }
+});
 ```
+
+When initialization process is finished, `onResult()` callback will be called. It will contain one of following values:
+
+* `SUCCESS`: initialization finished successfully.
+* `FAILURE`: initialization finished with failure.
 
 ### Showing an ad
 
@@ -89,6 +99,48 @@ JukkoSdk.getInstance().setAdsFrequency(timeInSeconds);
 ```
 
 Set `0` to disable frequency capping.
+
+### User Info
+
+The Jukko SDK allows to provide information about user age and gender. It could be achieved using:
+
+```java
+JukkoSdk.getInstance().setUserInfo(age, gender, new JukkoSdkInterface.ResultCallback() {
+    @Override
+    public void onResult(JukkoSdkInterface.OperationResult result) {
+        // handle setUserInfo result here
+    }
+});
+```
+
+Age could take following values:
+
+* `AGE_13_17`: Age from 13 to 17
+* `AGE_18_29`: Age from 18 to 29
+* `AGE_30_44`:  Age from 30 to 44
+* `AGE_45_PLUS`: Age 45+
+* `NONE`: Age unspecified
+
+Gender could take following values:
+
+* `MALE`
+* `FEMALE`
+* `NONE`
+
+When user info setting is finished, `onResult` callback will be called. It will contain one of following values:
+
+* `SUCCESS`: user info setting finished successfully.
+* `FAILURE`: user info setting  finished with failure.
+
+### SDK initialization status
+
+The Jukko SDK provides methods to retrieve current status of SDK:
+
+```java
+boolean isInitialized = JukkoSdk.getInstance().isInitialized()
+```
+
+This method will return `true` if SDK was initialized successfully, `false` otherwise.
 
 ### Console logging
 
