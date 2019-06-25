@@ -113,6 +113,20 @@ JukkoSdk.getInstance().setUserInfo(age, gender, new JukkoSdkInterface.ResultCall
 });
 ```
 
+Age could take following values:
+
+* `AGE_13_17`: Age from 13 to 17
+* `AGE_18_29`: Age from 18 to 29
+* `AGE_30_44`:  Age from 30 to 44
+* `AGE_45_PLUS`: Age 45+
+* `NONE`: Age unspecified
+
+Gender could take following values:
+
+* `MALE`
+* `FEMALE`
+* `NONE`
+
 When user info setting is finished, `onResult` callback will be called. It will contain one of following values:
 
 * `SUCCESS`: user info setting finished successfully.
